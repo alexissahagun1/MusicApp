@@ -91,13 +91,18 @@ class MusicViewModel: ObservableObject {
     func updateVolume(value: DragGesture.Value) {
         
         
-        if value.location.x >= 0 && value.location.x <= UIScreen.main.bounds.width - 180
-        player.volume = Float(progrsss)
-        withAnimation(Animation.linear(duration: 0.1)) {
-            volume = value.location.x
-            print("Volume: \(volume)")
+        if value.location.x >= 0 && value.location.x <= UIScreen.main.bounds.width - 180 {
+            
+            
+            let progress = value.location.x / UIScreen.main.bounds.width - 180
+            player.volume = Float(progress)
+                withAnimation(Animation.linear(duration: 0.1)) {
+                volume = value.location.x
+                print("Volume: \(volume)")
+                }
         }
     }
-    
 }
+    
+
  
