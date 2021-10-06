@@ -102,6 +102,26 @@ class MusicViewModel: ObservableObject {
                 }
         }
     }
+    
+    func forward() {
+        
+        let angle = self.angle + ((0.5 * 180) / .pi)
+        
+        if angle > 0 && angle <= 288 {
+            let progress = angle / 288
+            let time = TimeInterval(progress) * player.duration
+            
+            player.currentTime = time
+            player.play()
+            
+            withAnimation(Animation.linear(duration: 0.1)){self.angle = Double(angle)}
+        }
+    }
+    
+    func rewind() {
+        
+        if angle = self.angle - ((0.5 * 180) / .pi)
+    }
 }
     
 
