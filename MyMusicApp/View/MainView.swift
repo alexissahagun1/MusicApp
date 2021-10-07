@@ -97,7 +97,7 @@ struct MainView: View {
                     .padding(.top)
                 
                 HStack(spacing: 55) {
-                    Button(action: {}) {
+                    Button(action: musicData.rewind) {
                         Image(systemName: "backward.fill")
                             .font(.title)
                             .foregroundColor(.gray)
@@ -162,6 +162,14 @@ struct MainView: View {
             
             HStack {
                 //App Footer
+                ForEach(buttons, id:\.self){name in
+                    Button(action: {}) {
+                        Image(systemName: name)
+                            .font(.title2)
+                            .foregroundColor(.white)
+                    }
+                    if name != buttons.last{Spacer(minLength: 0)}
+                }
             }
             .padding(.horizontal, 35)
             .padding(.top, 25)
